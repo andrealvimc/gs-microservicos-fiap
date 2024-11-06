@@ -22,7 +22,33 @@ export class CertificateService {
     completionDate: string,
     signatureName: string,
     position: string,
-  ): Promise<Certificate> {
+  ): Promise<any> {
+    const job = await this.certificateQueue.add('generateCertificate', {
+      studentName,
+      studentRM,
+      courseId,
+      courseName,
+      completionDate,
+      signatureName,
+      position,
+    });
+
+    const certificate = await this.processCertificate(job);
+
+    return certificate;
+  }
+
+  async processCertificate(job: any): Promise<Certificate> {
+    const {
+      studentName,
+      studentRM,
+      courseId,
+      courseName,
+      completionDate,
+      signatureName,
+      position,
+    } = job.data;
+
     const uploadsDir = path.join(__dirname, 'uploads');
     if (!fs.existsSync(uploadsDir)) {
       fs.mkdirSync(uploadsDir);

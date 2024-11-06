@@ -3,10 +3,11 @@ import { CertificateController } from './controller/certificate.controller';
 import { CertificateService } from './service/certificate.service';
 import { PrismaService } from '../prisma.service';
 import { BullModule } from '@nestjs/bullmq';
+import { CertificateConsumer } from './service/certificate.consumer';
 
 @Module({
   controllers: [CertificateController],
-  providers: [CertificateService, PrismaService],
+  providers: [CertificateService, PrismaService, CertificateConsumer],
   exports: [CertificateService],
   imports: [
     BullModule.registerQueue({

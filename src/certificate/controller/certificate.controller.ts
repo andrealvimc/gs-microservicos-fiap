@@ -18,17 +18,27 @@ export class CertificateController {
       position,
     } = body;
 
-    const certificate = await this.certificateService.generateCertificate(
-      studentName,
-      studentRM,
-      courseId,
-      courseName,
-      completionDate,
-      signatureName,
-      position,
-    );
+    try {
+      const certificate = await this.certificateService.generateCertificate(
+        studentName,
+        studentRM,
+        courseId,
+        courseName,
+        completionDate,
+        signatureName,
+        position,
+      );
 
-    response.json(certificate);
+      console.log(certificate, 'certificate');
+
+      response.json({
+        message: 'Certificado gerado com sucesso',
+        certificate,
+        id: certificate,
+      });
+    } catch (error) {
+      response.status(500).json({ message: error.message }); // Retorna erro se o trabalho falhar
+    }
   }
 
   @Get('/:id')

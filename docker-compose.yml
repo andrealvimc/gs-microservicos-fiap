@@ -8,16 +8,23 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000:3000"
+      - '3000:3000'
     command: npm run start:dev
     depends_on:
       - db
+      - redis
 
   db:
     image: nouchka/sqlite3
     container_name: sqlite_db
     volumes:
       - db_data:/data
+
+  redis:
+    image: redis:alpine
+    container_name: redis_db
+    ports:
+      - '6379:6379'
 
 volumes:
   db_data:
