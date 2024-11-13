@@ -41,8 +41,23 @@ MARCELO LOPEZ - RM94592
   }
   ```
 - **Resposta:**
+
   - **Status 200:** Retorna os detalhes do certificado gerado.
   - **Status 400:** Erro de validação se os dados estiverem incorretos.
+
+  ````bash
+    curl -X POST http://localhost:3000/certificate \
+    -H "Content-Type: application/json" \
+    -d '{
+      "studentName": "Nome do Estudante",
+      "studentRM": 123456,
+      "courseId": 1,
+      "courseName": "Nome do Curso",
+      "completionDate": "2023-10-30",
+      "signatureName": "Nome da Assinatura",
+      "position": "Cargo"
+    }'```
+  ````
 
 ### 2. Obter Certificado
 
