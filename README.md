@@ -68,7 +68,7 @@ MARCELO LOPEZ - RM94592
 - **Parâmetros:**
   - `id`: ID do certificado a ser recuperado.
 - **Resposta:**
-  - **Status 200:** Retorna o arquivo PDF do certificado.
+  - **Status 200:** 
   - **Status 404:** Certificado não encontrado.
 
 ## OBS:
