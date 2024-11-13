@@ -56,7 +56,8 @@ MARCELO LOPEZ - RM94592
       "completionDate": "2023-10-30",
       "signatureName": "Nome da Assinatura",
       "position": "Cargo"
-    }'```
+    }'
+  ```
 
 
 ### 2. Obter Certificado
