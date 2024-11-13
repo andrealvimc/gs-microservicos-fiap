@@ -29,8 +29,6 @@ export class CertificateController {
         position,
       );
 
-      console.log(certificate, 'certificate');
-
       response.json({
         message: 'Certificado gerado com sucesso',
         certificate,
@@ -44,10 +42,6 @@ export class CertificateController {
   @Get('/:id')
   async getPdf(@Param('id') id: string, @Res() response: Response) {
     const certificate = await this.certificateService.getCertificate(id);
-    if (certificate) {
-      response.sendFile(certificate.pdfPath);
-    } else {
-      response.status(404).send('Certificado não encontrado');
-    }
+    return response.status(200).json(certificate);
   }
 }

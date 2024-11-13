@@ -12,7 +12,6 @@ export class CertificateConsumer extends WorkerHost {
 
   async process(job: Job) {
     console.log('Processing job:', job.id);
-    return await this.certificateService.processCertificate(job);
   }
 
   @OnQueueEvent('active')
