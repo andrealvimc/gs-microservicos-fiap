@@ -187,6 +187,7 @@ export class CertificateService {
         RM: studentRM,
         courseId: courseId,
         courseName: courseName,
+        status: 'PENDING',
       },
     });
 

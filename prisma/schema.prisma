@@ -13,12 +13,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// 
+
 model Certificate {
-  id          String @id @default(uuid())
+  id          String  @id @default(uuid())
   peopleName  String
-  pdfPath     String
+  pdfPath     String?
   studentName String
   RM          Int
   courseId    Int
   courseName  String
+  status      String
 }
