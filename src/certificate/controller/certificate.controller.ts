@@ -34,10 +34,10 @@ export class CertificateController {
       response.json({
         message: 'Certificado gerado com sucesso',
         certificate,
-        id: certificate,
+        id: certificate.id,
       });
     } catch (error) {
-      response.status(500).json({ message: error.message }); // Retorna erro se o trabalho falhar
+      response.status(500).json({ message: error.message });
     }
   }
 
